@@ -3,6 +3,10 @@
 use App\Http\Controllers\GraficoController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/migrar', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migraciones completadas';
+});
 Route::get('/', function () {
     return view('welcome');
 });
